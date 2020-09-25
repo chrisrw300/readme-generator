@@ -1,6 +1,6 @@
-const generateReadme = (repoTitle, repoDesc, tableOfContents, installation, usage, license, contributing, tests, githubProfile, emailAddress) => {
+const generateReadme = (repoTitle, repoDesc, installation, usage, license, contributing, tests, githubProfile, emailAddress) => {
     return `
-# ${repoTitle}
+# ${repoTitle} ${license}
 ## Description
 ${repoDesc}
 ## Table of Contents
