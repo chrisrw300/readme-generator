@@ -1,8 +1,8 @@
-const generateReadme = (repoTitle, description, tableOfContents, installation, usage, license, contributing, tests, questions) => {
+const generateReadme = (repoTitle, repoDesc, tableOfContents, installation, usage, license, contributing, tests, githubProfile, emailAddress) => {
     return `
 # ${repoTitle}
 ## Description
-${description}
+${repoDesc}
 ## Table of Contents
 ${tableOfContents}
 ## Installation
@@ -16,6 +16,7 @@ ${contributing}
 ## Tests
 ${tests}
 ## Questions
-${questions}
+View my other repositories @ https://www.github.com/${githubProfile}
+If you have anymore questions, please email me @ ${emailAddress}
     `;
 }
