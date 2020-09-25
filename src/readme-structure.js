@@ -4,7 +4,10 @@ const generateReadme = (repoTitle, repoDesc, tableOfContents, installation, usag
 ## Description
 ${repoDesc}
 ## Table of Contents
-${tableOfContents}
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
 ## Installation
 ${installation}
 ## Usage
