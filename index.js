@@ -1,38 +1,29 @@
-const readmeInput = process.argv.slice(2, process.argv.length);
-const [repoTitle, repoDesc, installation, usage, license, contributing, tests, githubProfile, emailAddress] = readmeInput;
 const inquirer = require('inquirer');
+const fs = require('fs');
+const generateReadme = require('./src/readme-structure.js');
 
-const promptUser = () => {
-    console.log(
-        `
-    =============================
-    Professional README Generator
-    **created by Chris Walston***
-    =============================
-        `
-    )
-    return inquirer.prompt([
-        //github profile
-        {
-            type: 'input',
-            name: 'githubProfile',
-            message: 'Please enter your GitHub username:',
-            validate: nameInput => {
-              if (nameInput) {
+const questions = [
+    //github profile
+    {
+        type: 'input',
+        name: 'githubProfile',
+        message: 'Please enter your GitHub username:',
+        validate: profileInput => {
+            if (profileInput) {
                 return true;
-              } else {
+            } else {
                 console.log('Please enter your GitHub username!');
                 return false;
-              }
             }
-          },
-          //email
+        }
+    },
+    //email
         {
             type: 'input',
             name: 'emailAddress',
             message: 'Please enter your email:',
-            validate: nameInput => {
-              if (nameInput) {
+            validate: emailInput => {
+              if (emailInput) {
                 return true;
               } else {
                 console.log('Please enter your GitHub username!');
@@ -45,8 +36,8 @@ const promptUser = () => {
             type: 'input',
             name: 'repoTitle',
             message: 'Please enter your project title:',
-            validate: nameInput => {
-              if (nameInput) {
+            validate: titleInput => {
+              if (titleInput) {
                 return true;
               } else {
                 console.log('Please enter a title!');
@@ -59,8 +50,8 @@ const promptUser = () => {
             type: 'input',
             name: 'repoDesc',
             message: 'Please enter a description of your project:',
-            validate: nameInput => {
-              if (nameInput) {
+            validate: repoInput => {
+              if (repoInput) {
                 return true;
               } else {
                 console.log('Please enter a description!');
@@ -73,8 +64,8 @@ const promptUser = () => {
             type: 'input',
             name: 'installation',
             message: 'Please enter installation instructions:',
-            validate: nameInput => {
-              if (nameInput) {
+            validate: installInput => {
+              if (installInput) {
                 return true;
               } else {
                 console.log('Please enter installation instructions');
@@ -86,9 +77,9 @@ const promptUser = () => {
           {
             type: 'input',
             name: 'usage',
-            message: 'Please enter how to use your project:',
-            validate: nameInput => {
-              if (nameInput) {
+            message: 'Please explain the uses of your project:',
+            validate: usageInput => {
+              if (usageInput) {
                 return true;
               } else {
                 console.log('Please enter usage details!');
@@ -107,45 +98,38 @@ const promptUser = () => {
           {
             type: 'input',
             name: 'contributing',
-            message: 'Please enter how to contribute to your project:',
-            validate: nameInput => {
-              if (nameInput) {
-                return true;
-              } else {
-                console.log('Please enter contribution details!');
-                return false;
-              }
-            }
+            message: 'Please enter any contributions to your project (optional, enter to skip):',
+            default: 'N/A'
           },
           {
             type: 'input',
             name: 'tests',
-            message: 'Please enter experiments for your app and how to run it:',
-            validate: nameInput => {
-              if (nameInput) {
-                return true;
-              } else {
-                console.log('Please enter experimental test details!');
-                return false;
-              }
-            }
+            message: "Please enter experiments you've run for your app, and how to use them (optional, enter to skip):",
+            default: 'N/A'
           }
-    ])
-}
+]
 
-const writeReadme = () => {
-    fs = require('fs');
-    const generateReadme = require('./src/readme-structure');
-    
-// inquirer.writeFile('readme.md', readmeInput, err => {
-//     if (err) throw err;
+//writes REAME file
+const writeToFile = (fileName, data) => {
+    fs.writeFile(fileName, data, err => {
+        if (err) throw new Error(err);
+        console.log('README generated!');
+    });
+};
 
+//starts program
+function init() {
+    console.log(`
+        ==========================
+             README GENERATOR
+         Created by Chris Walston
+        ==========================
+    `)
+    inquirer.prompt(questions)
+    .then(answers => {
+        console.log(answers);
+        writeToFile('./README.md', generateReadme({...answers}))
+    });   
+};
 
-//     console.log("COMPLETE! Check out file!!");
-// })
-
-}
-
-promptUser()
-    .then(answers => console.log(answers))
-    .then(writeReadme())
+init();

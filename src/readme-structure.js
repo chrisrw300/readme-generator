@@ -1,25 +1,27 @@
-const generateReadme = (repoTitle, repoDesc, installation, usage, license, contributing, tests, githubProfile, emailAddress) => {
+const generateReadme = (data) => {
     return `
-# ${repoTitle} ${license}
+# ${data.repoTitle} ![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
 ## Description
-${repoDesc}
+${data.repoDesc}
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
 ## Installation
-${installation}
+${data.installation}
 ## Usage
-${usage}
+${data.usage}
 ## License
-${license}
+![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
 ## Contributing
-${contributing}
+${data.contributing}
 ## Tests
-${tests}
+${data.tests}
 ## Questions
-View my other repositories @ https://www.github.com/${githubProfile}
-If you have anymore questions, please email me @ ${emailAddress}
+View my other repositories @ https://www.github.com/${data.githubProfile}
+If you have anymore questions, please email me @ ${data.emailAddress}
     `;
 }
+
+module.exports = generateReadme;
