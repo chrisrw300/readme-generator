@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateReadme = require('./src/readme-structure.js');
+const generateReadme = require('./js/readme-structure.js');
 
 const questions = [
     //github profile
@@ -128,7 +128,7 @@ function init() {
     inquirer.prompt(questions)
     .then(answers => {
         console.log(answers);
-        writeToFile('./README.md', generateReadme({...answers}))
+        writeToFile('./readme/README.md', generateReadme({...answers}))
     });   
 };
 
