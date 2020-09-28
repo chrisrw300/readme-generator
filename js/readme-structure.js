@@ -8,6 +8,9 @@ ${data.repoDesc}
 * [Usage](#usage)
 * [Credits](#credits)
 * [Licenses](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 ## Installation
 ${data.installation}
 ## Usage
