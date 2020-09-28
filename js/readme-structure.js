@@ -7,7 +7,7 @@ ${data.repoDesc}
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
-* [License](#license)
+* [Licenses](#license)
 ## Installation
 ${data.installation}
 ## Usage
