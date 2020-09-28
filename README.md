@@ -1,4 +1,7 @@
 # README generator
+## Preview Project
+Click on this link to preview how my project works!
+https://drive.google.com/file/d/1ak6O7mC4plmCJlblamHAvmTnyqP4mtqp/view
 ## Description
 This project is used to make a professional Readme file for your next project.
 ## Table of Contents
