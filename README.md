@@ -2,6 +2,8 @@
 ## Preview Project
 Click on this link to preview how my project works!
 https://drive.google.com/file/d/1ak6O7mC4plmCJlblamHAvmTnyqP4mtqp/view
+![image](https://user-images.githubusercontent.com/65309756/103018015-bb9f5f80-4501-11eb-96b3-72e1ee672cc3.png)
+
 ## Description
 This project is used to make a professional Readme file for your next project.
 ## Table of Contents
